@@ -1,0 +1,137 @@
+{
+  "icons": [
+    {
+      "key": "home",
+      "library": "MaterialDesign",
+      "iconName": "MDI_HOME",
+      "size": 20,
+      "description": "Home icon for sidebar"
+    },
+    {
+      "key": "chats",
+      "library": "MaterialDesign",
+      "iconName": "MDI_MESSAGE_TEXT",
+      "size": 20,
+      "description": "Chats icon for sidebar"
+    },
+    {
+      "key": "groups",
+      "library": "MaterialDesign",
+      "iconName": "MDI_ACCOUNT_GROUP",
+      "size": 20,
+      "description": "Groups icon for sidebar"
+    },
+    {
+      "key": "notifications",
+      "library": "MaterialDesign",
+      "iconName": "MDI_BELL",
+      "size": 20,
+      "description": "Notifications icon for sidebar"
+    },
+    {
+      "key": "contacts",
+      "library": "MaterialDesign",
+      "iconName": "MDI_ACCOUNT",
+      "size": 20,
+      "description": "Contacts icon for sidebar"
+    },
+    {
+      "key": "profile",
+      "library": "MaterialDesign",
+      "iconName": "MDI_ACCOUNT_CIRCLE",
+      "size": 20,
+      "description": "Profile icon for sidebar"
+    },
+    {
+      "key": "settings",
+      "library": "MaterialDesign",
+      "iconName": "MDI_COG",
+      "size": 20,
+      "description": "Settings icon for sidebar"
+    },
+    {
+      "key": "logo",
+      "library": "MaterialDesign",
+      "iconName": "MDI_CELLPHONE",
+      "size": 24,
+      "description": "App logo icon"
+    },
+    {
+      "key": "menu",
+      "library": "MaterialDesign",
+      "iconName": "MDI_DOTS_VERTICAL",
+      "size": 22,
+      "description": "Vertical dots menu icon"
+    },
+    {
+      "key": "welcome",
+      "library": "MaterialDesign",
+      "iconName": "MDI_HAND_WAVING",
+      "size": 48,
+      "description": "Welcome wave icon"
+    },
+    {
+      "key": "attachment",
+      "library": "MaterialDesign",
+      "iconName": "MDI_PAPERCLIP",
+      "size": 20,
+      "description": "Attachment icon"
+    },
+    {
+      "key": "emoji",
+      "library": "MaterialDesign",
+      "iconName": "MDI_EMOTICON_HAPPY",
+      "size": 20,
+      "description": "Emoji picker icon"
+    },
+    {
+      "key": "user_avatar",
+      "library": "MaterialDesign",
+      "iconName": "MDI_ACCOUNT",
+      "size": 40,
+      "description": "Default user avatar"
+    },
+    {
+      "key": "back",
+      "library": "MaterialDesign",
+      "iconName": "MDI_ARROW_LEFT",
+      "size": 20,
+      "description": "Back navigation icon"
+    },
+    {
+      "key": "send",
+      "library": "MaterialDesign",
+      "iconName": "MDI_SEND",
+      "size": 20,
+      "description": "Send message icon"
+    },
+    {
+      "key": "media",
+      "library": "MaterialDesign",
+      "iconName": "MDI_IMAGE",
+      "size": 20,
+      "description": "Shared media icon"
+    },
+    {
+      "key": "files",
+      "library": "MaterialDesign",
+      "iconName": "MDI_FILE_DOCUMENT",
+      "size": 20,
+      "description": "Shared files icon"
+    },
+    {
+      "key": "add",
+      "library": "MaterialDesign",
+      "iconName": "MDI_PLUS",
+      "size": 20,
+      "description": "Add icon"
+    },
+    {
+      "key": "feed",
+      "library": "MaterialDesign",
+      "iconName": "MDI_RSS",
+      "size": 20,
+      "description": "Campus feed icon"
+    }
+  ]
+}
