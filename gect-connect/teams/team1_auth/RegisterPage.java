@@ -22,6 +22,7 @@ public class RegisterPage extends JPanel {
     private final JTextField emailField;
     private final JComboBox<String> roleDropdown;
     private final JTextField idField;
+    private final JTextField departmentField; // <-- new
     private final JPasswordField passField;
     private final JPasswordField confirmPassField;
     private final JTextField otpField;
@@ -107,6 +108,12 @@ public class RegisterPage extends JPanel {
             idField.setForeground(Color.GRAY);
         });
 
+        // Department (NEW)
+        gbc.gridy++;
+        departmentField = UIUtils.createModernTextField("Department");
+        departmentField.setPreferredSize(new Dimension(400, UIUtils.INPUT_HEIGHT));
+        glassCard.add(departmentField, gbc);
+
         // Passwords
         gbc.gridy++;
         passField = UIUtils.createModernPasswordField("Create Password (min 6 chars)");
@@ -189,10 +196,11 @@ public class RegisterPage extends JPanel {
         String name = nameField.getText();
         String email = emailField.getText();
         String id = idField.getText();
+        String department = departmentField.getText(); // <-- new
         String pass = new String(passField.getPassword());
         String confirm = new String(confirmPassField.getPassword());
 
-        if (name.isEmpty() || email.isEmpty() || id.isEmpty() || pass.isEmpty()) {
+        if (name.isEmpty() || email.isEmpty() || id.isEmpty() || pass.isEmpty() || department.isEmpty()) {
             DebugLogger.warn("AUTH ? Validation failed: MISSING_FIELDS - handleGenerateOtp() - RegisterPage.java");
             errorLabel.setText("All fields are required.");
             AnimationUtils.shake(this);
@@ -237,6 +245,7 @@ public class RegisterPage extends JPanel {
         String name = nameField.getText();
         String email = emailField.getText();
         String id = idField.getText();
+        String department = departmentField.getText(); // <-- new
         String role = (String) roleDropdown.getSelectedItem();
         String pass = new String(passField.getPassword());
 
@@ -259,7 +268,7 @@ public class RegisterPage extends JPanel {
                 return;
             }
 
-            boolean success = authService.register(email, name, role, id, pass);
+            boolean success = authService.register(email, name, role, id, department, pass); // <-- pass department
             loading.dispose();
             if (success) {
                 DebugLogger.info("AUTH ? Registration successful for " + email + " - handleRegister() - RegisterPage.java");

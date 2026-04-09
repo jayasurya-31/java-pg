@@ -14,7 +14,7 @@ public class AuthDAO {
 
     public User authenticate(String email, String password) {
         DebugLogger.info("DB ? Authenticating user: " + email + " - authenticate() - AuthDAO.java");
-        String sql = "SELECT id, full_name, person_type, roll_no_emp_id, password FROM users WHERE email = ?";
+        String sql = "SELECT id, full_name, person_type, roll_no_emp_id, department, password FROM users WHERE email = ?";
         System.out.println("[DB DEBUG] Executing query in AuthDAO.authenticate: " + sql);
         
         try (Connection conn = DBConnection.getConnection()) {
@@ -41,6 +41,7 @@ public class AuthDAO {
                             );
                             user.setPersonType(rs.getString("person_type"));
                             user.setRollNoEmpId(rs.getString("roll_no_emp_id"));
+                            user.setDepartment(rs.getString("department"));
                             updateOnlineStatus(user.getId(), true);
                             System.out.println("[DB DEBUG] Query result: Authentication SUCCESS for " + email);
                             return user;
@@ -60,9 +61,9 @@ public class AuthDAO {
         return null;
     }
 
-    public boolean register(String email, String fullName, String personType, String rollNoEmpId, String password) {
+    public boolean register(String email, String fullName, String personType, String rollNoEmpId, String department, String password) {
         DebugLogger.info("DB ? Registering user: " + email + " - register() - AuthDAO.java");
-        String sql = "INSERT INTO users (email, full_name, password, person_type, roll_no_emp_id) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO users (email, full_name, password, person_type, roll_no_emp_id, department) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DBConnection.getConnection()) {
             if (conn == null) {
@@ -77,6 +78,7 @@ public class AuthDAO {
                 pstmt.setString(3, password);
                 pstmt.setString(4, personType.toUpperCase());
                 pstmt.setString(5, rollNoEmpId);
+                pstmt.setString(6, department); // <-- new
 
                 DebugLogger.info("DB ? Executing update... - register() - AuthDAO.java");
                 int rows = pstmt.executeUpdate();
@@ -89,6 +91,7 @@ public class AuthDAO {
         }
     }
 
+    // 
     public boolean isEmailExists(String email) {
         DebugLogger.info("DB ? Checking email existence: " + email + " - isEmailExists() - AuthDAO.java");
         String sql = "SELECT 1 FROM users WHERE email = ?";

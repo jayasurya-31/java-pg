@@ -51,14 +51,15 @@ public class AuthService {
     /**
      * Register a new user with validation.
      */
-    public boolean register(String email, String fullName, String role, String rollNoEmpId, String password) {
+    public boolean register(String email, String fullName, String role, String rollNoEmpId, String department, String password) {
         DebugLogger.info("AUTH ? Registration attempt: " + email + " - register() - AuthService.java");
         email = UIUtils.ValidationUtils.trim(email);
         fullName = UIUtils.ValidationUtils.trim(fullName);
         rollNoEmpId = UIUtils.ValidationUtils.trim(rollNoEmpId);
+        department = UIUtils.ValidationUtils.trim(department);
 
         // All fields required
-        if (email.isEmpty() || fullName.isEmpty() || role == null || rollNoEmpId.isEmpty() || password.isEmpty()) {
+        if (email.isEmpty() || fullName.isEmpty() || role == null || rollNoEmpId.isEmpty() || department.isEmpty() || password.isEmpty()) {
             DebugLogger.warn("AUTH ? Registration FAILED: Missing fields - register() - AuthService.java");
             return false;
         }
@@ -89,7 +90,7 @@ public class AuthService {
         }
 
         DebugLogger.info("AUTH ? Calling DAO register... - register() - AuthService.java");
-        boolean success = authDAO.register(email, fullName, role, rollNoEmpId, password);
+        boolean success = authDAO.register(email, fullName, role, rollNoEmpId, department, password);
         if (success) {
             DebugLogger.info("AUTH ? Registration SUCCESS: " + email + " - register() - AuthService.java");
             EventBus.getInstance().publish("AUTH_REGISTER_SUCCESS", email);
